@@ -28,6 +28,59 @@ app.get('/', async (request, response) => {
 	response.render('index.ejs', { zebra: todoItems, left: itemsLeft })
 })
 
+app.post('/createTodo', (request, response) => {
+	db.collection('todos')
+		.insertOne({ todo: request.body.todoItem, completed: false })
+		.then((result) => {
+			console.log('Todo has been added!')
+			response.redirect('/')
+		})
+})
+
+app.put('/markComplete', (request, response) => {
+	db.collection('todos')
+		.updateOne(
+			{ todo: request.body.rainbowUnicorn },
+			{
+				$set: {
+					completed: true,
+				},
+			}
+		)
+		.then((result) => {
+			console.log('Marked Complete')
+			response.json('Marked Complete')
+		})
+})
+
+app.put('/undo', (request, response) => {
+	db.collection('todos')
+		.updateOne(
+			{
+				todo: request.body.rainbowUnicorn,
+			},
+			{
+				$set: {
+					completed: false,
+				},
+			}
+		)
+		.then((result) => {
+			console.log('Marked Complete')
+			response.json()
+		})
+})
+
+app.delete('/deleteTodo', (request, response) => {
+	db.collection('todos')
+		.deleteOne({ todo: request.body.rainbowUnicorn })
+		.then((result) => {
+			console.log('Deleted Todo')
+			response.json('Deleted It')
+		})
+		.catch((err) => console.log(err))
+})
+
 app.listen(process.env.PORT || PORT, () => {
 	console.log('Server is running, you better catch it!')
 })

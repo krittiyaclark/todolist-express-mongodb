@@ -57,6 +57,49 @@ app.get('/', function _callee(request, response) {
     }
   });
 });
+app.post('/createTodo', function (request, response) {
+  db.collection('todos').insertOne({
+    todo: request.body.todoItem,
+    completed: false
+  }).then(function (result) {
+    console.log('Todo has been added!');
+    response.redirect('/');
+  });
+});
+app.put('/markComplete', function (request, response) {
+  db.collection('todos').updateOne({
+    todo: request.body.rainbowUnicorn
+  }, {
+    $set: {
+      completed: true
+    }
+  }).then(function (result) {
+    console.log('Marked Complete');
+    response.json('Marked Complete');
+  });
+});
+app.put('/undo', function (request, response) {
+  db.collection('todos').updateOne({
+    todo: request.body.rainbowUnicorn
+  }, {
+    $set: {
+      completed: false
+    }
+  }).then(function (result) {
+    console.log('Marked Complete');
+    response.json();
+  });
+});
+app["delete"]('/deleteTodo', function (request, response) {
+  db.collection('todos').deleteOne({
+    todo: request.body.rainbowUnicorn
+  }).then(function (result) {
+    console.log('Deleted Todo');
+    response.json('Deleted It');
+  })["catch"](function (err) {
+    return console.log(err);
+  });
+});
 app.listen(process.env.PORT || PORT, function () {
   console.log('Server is running, you better catch it!');
 });
