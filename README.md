@@ -10,7 +10,8 @@ A full stack todo app. You can add, remove, and mark tasks as completed.
 
 ## How It's Made:
 
-**Tech used:** HTML, CSS, JavaScript, NodeJS, Express, and MongoDB
+**Tech used:** HTML, CSS, JavaScript, NodeJS, Express, MongoDB, and Microsoft
+Authentication.
 
 I built a full stack todo app so I can learn the backend, for example, send a
 post request, get a request and update the database.
