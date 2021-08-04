@@ -1,8 +1,8 @@
 "use strict";
 
 var deleteBtn = document.querySelectorAll('.del');
-var todoItem = document.querySelectorAll('.todoItem span');
-var todoComplete = document.querySelectorAll('.todoItem span.completed');
+var todoItem = document.querySelectorAll('span.not');
+var todoComplete = document.querySelectorAll('span.completed');
 Array.from(deleteBtn).forEach(function (el) {
   el.addEventListener('click', deleteTodo);
 });
@@ -10,25 +10,25 @@ Array.from(todoItem).forEach(function (el) {
   el.addEventListener('click', markComplete);
 });
 Array.from(todoComplete).forEach(function (el) {
-  el.addEventListener('click', undo);
+  el.addEventListener('click', markIncomplete);
 });
 
 function deleteTodo() {
-  var todoText, response, data;
+  var todoId, response, data;
   return regeneratorRuntime.async(function deleteTodo$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          todoText = this.parentNode.childNodes[1].innerText;
+          todoId = this.parentNode.dataset.id;
           _context.prev = 1;
           _context.next = 4;
-          return regeneratorRuntime.awrap(fetch('deleteTodo', {
+          return regeneratorRuntime.awrap(fetch('todos/deleteTodo', {
             method: 'delete',
             headers: {
               'Content-type': 'application/json'
             },
             body: JSON.stringify({
-              rainbowUnicorn: todoText
+              todoIdFromJSFile: todoId
             })
           }));
 
@@ -58,21 +58,21 @@ function deleteTodo() {
 }
 
 function markComplete() {
-  var todoText, response, data;
+  var todoId, response, data;
   return regeneratorRuntime.async(function markComplete$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          todoText = this.parentNode.childNodes[1].innerText;
+          todoId = this.parentNode.dataset.id;
           _context2.prev = 1;
           _context2.next = 4;
-          return regeneratorRuntime.awrap(fetch('markComplete', {
+          return regeneratorRuntime.awrap(fetch('todos/markComplete', {
             method: 'put',
             headers: {
               'Content-type': 'application/json'
             },
             body: JSON.stringify({
-              rainbowUnicorn: todoText
+              todoIdFromJSFile: todoId
             })
           }));
 
@@ -101,22 +101,22 @@ function markComplete() {
   }, null, this, [[1, 12]]);
 }
 
-function undo() {
-  var todoText, response, data;
-  return regeneratorRuntime.async(function undo$(_context3) {
+function markIncomplete() {
+  var todoId, response, data;
+  return regeneratorRuntime.async(function markIncomplete$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
-          todoText = this.parentNode.childNodes[1].innerText;
+          todoId = this.parentNode.dataset.id;
           _context3.prev = 1;
           _context3.next = 4;
-          return regeneratorRuntime.awrap(fetch('undo', {
+          return regeneratorRuntime.awrap(fetch('todos/markIncomplete', {
             method: 'put',
             headers: {
               'Content-type': 'application/json'
             },
             body: JSON.stringify({
-              rainbowUnicorn: todoText
+              todoIdFromJSFile: todoId
             })
           }));
 
