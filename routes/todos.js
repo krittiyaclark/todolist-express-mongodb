@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const todosController = require('../controllers/todos')
-
-router.get('/', todosController.getTodos)
+const { ensureAuth, ensureGuest } = require('../middleware/auth')
+// Azurse Auth
+router.get('/', ensureAuth, todosController.getTodos)
 
 router.post('/createTodo', todosController.createTodo)
 

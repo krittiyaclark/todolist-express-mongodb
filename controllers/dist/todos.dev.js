@@ -11,12 +11,15 @@ module.exports = {
           case 0:
             _context.prev = 0;
             _context.next = 3;
-            return regeneratorRuntime.awrap(Todo.find());
+            return regeneratorRuntime.awrap(Todo.find({
+              microsoftId: req.user.microsoftId
+            }));
 
           case 3:
             todoItems = _context.sent;
             _context.next = 6;
             return regeneratorRuntime.awrap(Todo.countDocuments({
+              microsoftId: req.user.microsoftId,
               completed: false
             }));
 
@@ -50,7 +53,8 @@ module.exports = {
             _context2.next = 3;
             return regeneratorRuntime.awrap(Todo.create({
               todo: req.body.todoItem,
-              completed: false
+              completed: false,
+              microsoftId: req.user.microsoftId
             }));
 
           case 3:

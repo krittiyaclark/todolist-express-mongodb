@@ -10,6 +10,10 @@ var TodoSchema = new mongoose.Schema({
   completed: {
     type: Boolean,
     required: true
+  },
+  microsoftId: {
+    type: String,
+    required: true
   }
 });
 module.exports = mongoose.model('Todo', TodoSchema);
