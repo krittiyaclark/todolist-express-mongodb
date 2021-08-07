@@ -1,7 +1,84 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+}
+
+main {
+	height: 83%;
+	width: 100%;
+	/* Pattern */
+	background: radial-gradient(black 3px, transparent 4px),
+		radial-gradient(black 3px, transparent 4px),
+		linear-gradient(#fff 4px, transparent 0),
+		linear-gradient(
+			45deg,
+			transparent 74px,
+			transparent 75px,
+			#a4a4a4 75px,
+			#a4a4a4 76px,
+			transparent 77px,
+			transparent 109px
+		),
+		linear-gradient(
+			-45deg,
+			transparent 75px,
+			transparent 76px,
+			#a4a4a4 76px,
+			#a4a4a4 77px,
+			transparent 78px,
+			transparent 109px
+		),
+		#fff;
+	background-size: 109px 109px, 109px 109px, 100% 6px, 109px 109px, 109px 109px;
+	background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+	/* Aligning Items in a Flex Container */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.page-footer {
+	padding-top: 20px;
+	color: #fff;
+	height: 10%;
+}
+
 h1 {
-	color: red;
+	font-family: 'Caveat', cursive;
+}
+
+#home h1 {
+	font-size: 5rem;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	#home h1 {
+		font-size: 3rem;
+	}
 }
 .completed {
 	text-decoration: line-through;
 	color: gray;
+}
+
+i.large.material-icons.event-note {
+	font-size: 3rem;
 }

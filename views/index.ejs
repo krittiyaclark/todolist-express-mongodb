@@ -3,11 +3,96 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!--Import Google Icon Font-->
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<!-- Compiled and minified CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/>
+
+		<!-- Compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+		<!-- Google Font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- Link Stylesheet -->
+		<link rel="stylesheet" href="css/style.css" />
+		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>Today List Plan App | Node.js, Express.js, MongoDB, Passport</title>
 	</head>
 	<body>
-		<h1>Create A Todo List By Clicking The Button Below</h1>
-		<a href="/auth/login"> New Todo List</a>
+		<nav class="teal">
+			<div class="nav-wrapper container">
+				<a href="/auth/login" class="brand-logo"
+					><i class="large material-icons event-note">event_note</i></a
+				>
+				<a href="/auth/login" data-target="mobile-demo" class="sidenav-trigger"
+					><i class="material-icons">menu</i></a
+				>
+				<ul class="right hide-on-med-and-down">
+					<li><a href="/auth/login">Login</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<ul class="sidenav" id="mobile-demo">
+			<li><a href="/auth/login">Login</a></li>
+		</ul>
+
+		<main>
+			<section id="home">
+				<div class="container">
+					<div class="section">
+						<div class="row">
+							<div class="col s12 center">
+								<h1 class="header center teal-text text-lighten-2">
+									Welcome to the Today List Plan App!
+								</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="page-footer teal">
+			<div class="footer-copyright">
+				<div class="container center">
+					<p>
+						&copy;
+						<span id="year"></span>
+						All rights reserved --
+						<a
+							class="black-text text-lighten-3"
+							hre="https://krittiya-clark.netlify.app"
+							>Krittiya Clark</a
+						>
+					</p>
+				</div>
+			</div>
+		</footer>
+
+		<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function () {
+				var elems = document.querySelectorAll('.sidenav')
+				var instances = M.Sidenav.init(elems, {})
+			})
+
+			const date = new Date()
+			const year = date.getFullYear()
+
+			document.getElementById('year').innerHTML = year
+		</script>
 	</body>
 </html>
