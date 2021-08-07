@@ -2,9 +2,9 @@ exports.creds = {
 	identityMetadata:
 		'https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration',
 
-	clientID: 'f5a669b3-5c83-4983-86c6-e8b6ba43bd3a',
+	clientID: '<add your own>',
 
-	clientSecret: 'U~8g-a6Rc3.hHO1i89b4jrtPJ1p-Ah~02E',
+	clientSecret: '<add your own>',
 
 	responseType: 'code id_token',
 

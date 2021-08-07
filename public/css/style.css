@@ -65,6 +65,7 @@ h1 {
 }
 
 #home h1 {
+	color: #e76f51 !important;
 	font-size: 5rem;
 }
 
@@ -81,4 +82,17 @@ h1 {
 
 i.large.material-icons.event-note {
 	font-size: 3rem;
+}
+
+/* Mobile */
+aside i.large.material-icons.event-note,
+aside #aside-login a {
+	color: teal;
+}
+
+#mobile-demo {
+	display: flex;
+	justify-content: center;
+	align-content: flex-start;
+	padding: 1rem;
 }
