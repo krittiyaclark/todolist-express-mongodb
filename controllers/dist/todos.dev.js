@@ -27,7 +27,8 @@ module.exports = {
             itemsLeft = _context.sent;
             res.render('todos.ejs', {
               todos: todoItems,
-              left: itemsLeft
+              left: itemsLeft,
+              user: req.user
             });
             _context.next = 13;
             break;

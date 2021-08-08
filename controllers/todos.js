@@ -10,7 +10,11 @@ module.exports = {
 				microsoftId: req.user.microsoftId,
 				completed: false,
 			})
-			res.render('todos.ejs', { todos: todoItems, left: itemsLeft })
+			res.render('todos.ejs', {
+				todos: todoItems,
+				left: itemsLeft,
+				user: req.user,
+			})
 		} catch (err) {
 			console.log(err)
 		}

@@ -2,8 +2,8 @@
 
 exports.creds = {
   identityMetadata: 'https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration',
-  clientID: '<add your own>',
-  clientSecret: '<add your own>',
+  clientID: '<clientID>',
+  clientSecret: '<clientSecret>',
   responseType: 'code id_token',
   responseMode: 'form_post',
   redirectUrl: 'http://localhost:2121/auth/openid/return',

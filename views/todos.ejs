@@ -1,31 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-        <li class='todoItem' data-id='<%=el._id%>'>
-            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-            <span class='del'> Delete </span>
-        </li>
-    <% }) %>    
-    </ul>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <h2>Things left to do: <%= left %></h2>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <!-- Bootstrap Icon -->
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+		<!--Import Google Icon Font-->
+		<!-- <link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/> -->
+		<!-- Compiled and minified CSS -->
+		<!-- <link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/> -->
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
+		<!-- Compiled and minified JavaScript -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 
-    <a href="../auth/logout">Logout</a>
-    <script src="js/main.js"></script>
-</body>
+		<!-- Google Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Work+Sans:wght@200;300&display=swap" rel="stylesheet">
+
+		<!-- Link Stylesheet -->
+		<link rel="stylesheet" href="css/style.css" />
+		<!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Today List Plan App | Node.js, Express.js, MongoDB, Passport</title>
+	</head>
+	<body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-teal">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/auth/login"><i class="bi bi-card-list"></i></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item name">
+                    <a class="nav-link name"><%= user.displayName %></a>
+                    </li>
+
+                    <li class="nav-item active-button">
+                        <a class="nav-link active" aria-current="page" href="../auth/logout">Logout</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+
+
+		<main id="todo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <header>
+                            <h1>
+                                Today List Plan App!
+                            </h1>
+                        </header>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div id="todo-contrainer">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h2 id="todo-left"><%= user.displayName %> has <%= left %> things left to do today.</h2>
+                            
+                            <div class="row">
+                                <div class="col-md-6 offset-md-3 text-center">
+                                    <form action="/todos/createTodo" method='POST'>
+                                        <div class="input-group mb-3">
+                                            <input id="todo-input"  class="form-control"  type="text" placeholder="What are your plan today...?" name='todoItem'  aria-label="Recipient's username" aria-describedby="button-addon2"/>
+                                            <button class="btn btn-outline-secondary" type="submit"><i class="bi bi-plus-square-fill"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 offset-md-3 text-center">
+                                    <article>
+                                        <ul>
+                                            <% todos.forEach( el => { %>
+                                                <li class='col-12 todoItem text-center' data-id='<%=el._id%>'>
+                                                    <span class='todo-list-item <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                                                    <span class='del float-end'> 
+                                                        <button class="btn btn-outline-secondary"><i class="bi bi-archive-fill"></i>
+                                                        </button> 
+                                                    </span>
+                                                </li>
+                                            <% }) %>    
+                                        </ul>
+                                    </article>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+		</main>
+
+		<footer class="bg-teal">
+			<div class="container">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <p class="text-center">
+                            &copy;
+                            <span id="year"></span>
+                            All rights reserved --
+                            <a
+                                class="black-text text-lighten-3"
+                                hre="https://krittiya-clark.netlify.app"
+                                >Krittiya Clark</a
+                            >
+                        </p>
+                    </div>
+				</div>
+			</div>
+		</footer>
+
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+		<script type="text/javascript">
+			// document.addEventListener('DOMContentLoaded', function () {
+			// 	var elems = document.querySelectorAll('.sidenav')
+			// 	var instances = M.Sidenav.init(elems, {})
+			// })
+
+			const date = new Date()
+			const year = date.getFullYear()
+
+			document.getElementById('year').innerHTML = year
+		</script>
+
+		<script src="js/main.js"></script>
+	</body>
 </html>
