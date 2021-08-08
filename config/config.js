@@ -2,15 +2,15 @@ exports.creds = {
 	identityMetadata:
 		'https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration',
 
-	clientID: '<clientID>',
+	clientID: 'f5a669b3-5c83-4983-86c6-e8b6ba43bd3a',
 
-	clientSecret: '<clientSecret>',
+	clientSecret: 'U~8g-a6Rc3.hHO1i89b4jrtPJ1p-Ah~02E',
 
 	responseType: 'code id_token',
 
 	responseMode: 'form_post',
 
-	redirectUrl: 'http://localhost:2121/auth/openid/return',
+	redirectUrl: 'https://today-plan-app.netlify.app/auth/openid/return',
 
 	allowHttpForRedirectUrl: true,
 
@@ -38,7 +38,7 @@ exports.creds = {
 	clockSkew: null,
 }
 
-exports.destroySessionUrl = 'http://localhost:2121'
+exports.destroySessionUrl = 'https://today-plan-app.netlify.app'
 
 exports.useMongoDBSessionStore = false
 
