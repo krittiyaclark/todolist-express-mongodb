@@ -16,10 +16,6 @@ Authentication.
 I built a full stack todo app so I can learn the backend, for example, send a
 post request, get a request and update the database.
 
-## Optimizations
-
-_(optional)_
-
 <!-- You don't have to include this section but interviewers _love_ that you can not
 only deliver a final product that looks great but also functions efficiently.
 Did you write something then refactor it later and the result was 5x faster than
