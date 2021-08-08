@@ -49,6 +49,6 @@ app.use(passport.session());
 app.use('/', homeRoutes);
 app.use('/auth', authRoutes);
 app.use('/todos', todoRoutes);
-app.listen(process.env.PORT || 8000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log('Server is running, you better catch it!');
 });
