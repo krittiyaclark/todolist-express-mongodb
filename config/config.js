@@ -10,7 +10,7 @@ exports.creds = {
 
 	responseMode: 'form_post',
 
-	redirectUrl: 'https://today-plan-app.netlify.app/auth/openid/return',
+	redirectUrl: 'https://today-plan-app.herokuapp.com/auth/openid/return',
 
 	allowHttpForRedirectUrl: true,
 
@@ -38,7 +38,7 @@ exports.creds = {
 	clockSkew: null,
 }
 
-exports.destroySessionUrl = 'https://today-plan-app.netlify.app'
+exports.destroySessionUrl = 'https://today-plan-app.herokuapp.com'
 
 exports.useMongoDBSessionStore = false
 
