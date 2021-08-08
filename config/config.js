@@ -45,6 +45,7 @@ exports.destroySessionUrl = 'https://today-plan-app.herokuapp.com'
 
 exports.useMongoDBSessionStore = false
 
-exports.databaseUri = 'mongodb://localhost/OIDCStrategy'
+exports.databaseUri =
+	'mongodb://https://today-plan-app.herokuapp.com/OIDCStrategy'
 
 exports.mongoDBSessionMaxAge = 24 * 60 * 60
