@@ -13,7 +13,7 @@ exports.creds = {
 
 	responseMode: 'form_post',
 
-	redirectUrl: 'http://localhost:2121/auth/openid/return',
+	redirectUrl: 'https://today-plan-app.herokuapp.com/auth/openid/return',
 
 	allowHttpForRedirectUrl: true,
 
@@ -41,7 +41,7 @@ exports.creds = {
 	clockSkew: null,
 }
 
-exports.destroySessionUrl = 'http://localhost:2121'
+exports.destroySessionUrl = 'https://today-plan-app.herokuapp.com'
 
 exports.useMongoDBSessionStore = false
 
