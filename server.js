@@ -39,6 +39,6 @@ app.use('/', homeRoutes)
 app.use('/auth', authRoutes)
 app.use('/todos', todoRoutes)
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 8000, () => {
 	console.log('Server is running, you better catch it!')
 })

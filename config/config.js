@@ -13,7 +13,7 @@ exports.creds = {
 
 	responseMode: 'form_post',
 
-	redirectUrl: 'https://today-plan-app.herokuapp.com/auth/openid/return',
+	redirectUrl: 'http://localhost:2121/auth/openid/return',
 
 	allowHttpForRedirectUrl: true,
 
@@ -41,11 +41,10 @@ exports.creds = {
 	clockSkew: null,
 }
 
-exports.destroySessionUrl = 'https://today-plan-app.herokuapp.com'
+exports.destroySessionUrl = 'http://localhost:2121'
 
 exports.useMongoDBSessionStore = false
 
-exports.databaseUri =
-	'mongodb://https://today-plan-app.herokuapp.com/OIDCStrategy'
+exports.databaseUri = 'mongodb://localhost/OIDCStrategy'
 
 exports.mongoDBSessionMaxAge = 24 * 60 * 60
