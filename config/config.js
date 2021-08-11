@@ -41,7 +41,7 @@ exports.creds = {
 	clockSkew: null,
 }
 
-exports.destroySessionUrl = 'https://today-plan-fullstack-app.herokuapp.com/'
+exports.destroySessionUrl = 'https://today-plan-fullstack-app.herokuapp.com'
 
 exports.useMongoDBSessionStore = false
 

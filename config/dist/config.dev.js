@@ -29,7 +29,7 @@ exports.creds = {
   nonceMaxAmount: 5,
   clockSkew: null
 };
-exports.destroySessionUrl = 'https://today-plan-fullstack-app.herokuapp.com/';
+exports.destroySessionUrl = 'https://today-plan-fullstack-app.herokuapp.com';
 exports.useMongoDBSessionStore = false;
 exports.databaseUri = 'mongodb://localhost/OIDCStrategy';
 exports.mongoDBSessionMaxAge = 24 * 60 * 60;
