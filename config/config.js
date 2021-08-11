@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '../config/.env' })
+require('dotenv').config({ path: './config/.env' })
 
 exports.creds = {
 	identityMetadata:
@@ -12,7 +12,8 @@ exports.creds = {
 
 	responseMode: 'form_post',
 
-	redirectUrl: 'https://today-plan-app.herokuapp.com/auth/openid/return',
+	redirectUrl:
+		'https://today-plan-fullstack-app.herokuapp.com/auth/openid/return',
 
 	allowHttpForRedirectUrl: true,
 
@@ -40,7 +41,7 @@ exports.creds = {
 	clockSkew: null,
 }
 
-exports.destroySessionUrl = 'https://today-plan-app.herokuapp.com'
+exports.destroySessionUrl = 'https://today-plan-fullstack-app.herokuapp.com/'
 
 exports.useMongoDBSessionStore = false
 

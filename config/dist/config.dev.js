@@ -1,7 +1,7 @@
 "use strict";
 
 require('dotenv').config({
-  path: '../config/.env'
+  path: './config/.env'
 });
 
 exports.creds = {
@@ -10,7 +10,7 @@ exports.creds = {
   clientSecret: process.env.AD_CLIENT_ID_SECRET,
   responseType: 'code id_token',
   responseMode: 'form_post',
-  redirectUrl: 'https://today-plan-app.herokuapp.com/auth/openid/return',
+  redirectUrl: 'https://today-plan-fullstack-app.herokuapp.com/auth/openid/return',
   allowHttpForRedirectUrl: true,
   validateIssuer: false,
   issuer: null,
@@ -29,7 +29,7 @@ exports.creds = {
   nonceMaxAmount: 5,
   clockSkew: null
 };
-exports.destroySessionUrl = 'https://today-plan-app.herokuapp.com';
+exports.destroySessionUrl = 'https://today-plan-fullstack-app.herokuapp.com/';
 exports.useMongoDBSessionStore = false;
 exports.databaseUri = 'mongodb://localhost/OIDCStrategy';
 exports.mongoDBSessionMaxAge = 24 * 60 * 60;
